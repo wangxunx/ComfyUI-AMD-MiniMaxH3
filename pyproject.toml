@@ -1,0 +1,14 @@
+[project]
+name = "amd-minimax-h3"
+description = "ComfyUI node for MiniMax H3 (Hailuo) video generation through the AMD gateway. Cloud service, no local GPU required; bring your own API key."
+version = "0.1.0"
+requires-python = ">=3.9"
+classifiers = ["Operating System :: OS Independent"]
+
+[project.urls]
+Repository = "https://github.com/AMD-AIM/ComfyUI-AMD-MiniMaxH3"
+
+[tool.comfy]
+# TODO: register this publisher id on registry.comfy.org before the first publish.
+PublisherId = "amd-aim"
+DisplayName = "AMD MiniMax H3"
