@@ -1,0 +1,176 @@
+{
+  "last_node_id": 4,
+  "last_link_id": 2,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [
+        -1660,
+        220
+      ],
+      "size": [
+        340,
+        340
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "AMDMiniMaxH3FirstLastFrameToVideo",
+      "pos": [
+        -1280,
+        220
+      ],
+      "size": [
+        400,
+        260
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "first_frame",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "name": "last_frame",
+          "type": "IMAGE",
+          "shape": 7,
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AMDMiniMaxH3FirstLastFrameToVideo"
+      },
+      "widgets_values": [
+        "The drawing comes to life. A gentle breeze moves across the grassy hill: her long blonde hair and her big fluffy ears sway with the wind, she blinks and her smile widens, and she slowly waves one hand at the camera. The white clouds drift across the blue sky behind her. Soft hand-drawn animation, flat bright colors, cheerful and playful, no camera cuts.",
+        "768P",
+        5
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 3,
+      "type": "SaveVideo",
+      "pos": [
+        -840,
+        220
+      ],
+      "size": [
+        540,
+        110
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "video/AMD_MiniMax_H3_flf",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "MarkdownNote",
+      "pos": [
+        -2130,
+        220
+      ],
+      "size": [
+        440,
+        340
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "color": "#432",
+      "bgcolor": "#653",
+      "properties": {},
+      "widgets_values": [
+        "## AMD MiniMax H3 First-Last-Frame to Video\n\nRequires an account key. Register at https://h3.oneclickamd.ai, then configure it either way below. **One-time setup per machine** — it applies to every workflow:\n\n- Environment variable `H3_GATEWAY_API_KEY`\n- Or save the key to `h3_gateway_api_key.txt` in the ComfyUI user directory\n\nIf the key is missing, the node fails immediately and tells you the registration URL and the exact file path, so you never sit through a silent 401.\n\n**Your key is not in this workflow.** The node has no `api_key` widget, so the key is never written into the workflow JSON or embedded into exported video metadata. This workflow is safe to share.\n\nIf you run your own gateway, override the default address with `H3_GATEWAY_BASE_URL`.\n\n**Parameters:** the loaded image becomes the first frame, and the video keeps that image's aspect ratio — there is no `ratio` widget. `resolution` 768P / 2K; `duration` 4-15 seconds.\n\n`last_frame` is optional. Leave it unconnected to animate a single image, or connect a second image to pin the final frame and let H3 animate the transition between the two."
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "VIDEO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.1,
+      "offset": [
+        2200,
+        60
+      ]
+    }
+  },
+  "version": 0.4
+}

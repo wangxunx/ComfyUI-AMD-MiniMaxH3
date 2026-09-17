@@ -1,6 +1,6 @@
 # ComfyUI-AMD-MiniMaxH3
 
-ComfyUI node for MiniMax H3 (Hailuo) video generation through the AMD gateway.
+ComfyUI nodes for MiniMax H3 (Hailuo) video generation through the AMD gateway.
 
 ## Install
 
@@ -27,10 +27,13 @@ To point the node at a different gateway, set `H3_GATEWAY_BASE_URL`.
 | Node | Inputs |
 |---|---|
 | AMD MiniMax H3 Text to Video | `prompt`, `resolution` (768P / 2K), `ratio` (six aspect ratios), `duration` (4-15 seconds) |
+| AMD MiniMax H3 First-Last-Frame to Video | `first_frame`, `prompt`, `resolution` (768P / 2K), `duration` (4-15 seconds), optional `last_frame` |
 
-## Example workflow
+Leave `last_frame` unconnected to animate a single image, or connect it to pin the final frame and animate the transition between the two. The video keeps the aspect ratio of the supplied images, so the node has no `ratio` widget.
 
-The package ships a ready-to-run workflow. In ComfyUI, open the template browser from the left sidebar, scroll to the **EXTENSIONS** section, and pick `ComfyUI-AMD-MiniMaxH3`. The workflow includes a note explaining the key setup.
+## Example workflows
+
+The package ships ready-to-run workflows. In ComfyUI, open the template browser from the left sidebar, scroll to the **EXTENSIONS** section, and pick `ComfyUI-AMD-MiniMaxH3`. Each workflow includes a note explaining the key setup.
 
 ## Your API key never enters a workflow
 
