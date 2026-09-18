@@ -1,6 +1,6 @@
 [project]
 name = "amd-minimax-h3"
-description = "ComfyUI nodes for MiniMax H3 (Hailuo) text-to-video and image-to-video generation through the AMD gateway. Cloud service, no local GPU required; bring your own API key."
+description = "Free MiniMax H3 (Hailuo) text-to-video and image-to-video through the AMD gateway. Register for an API key; no local GPU required."
 version = "0.1.0"
 license = { file = "LICENSE" }
 requires-python = ">=3.10"
@@ -8,8 +8,12 @@ classifiers = ["Operating System :: OS Independent"]
 
 [project.urls]
 Repository = "https://github.com/AMD-AIM/ComfyUI-AMD-MiniMaxH3"
+Documentation = "https://github.com/AMD-AIM/ComfyUI-AMD-MiniMaxH3#readme"
+"Bug Tracker" = "https://github.com/AMD-AIM/ComfyUI-AMD-MiniMaxH3/issues"
 
 [tool.comfy]
 # TODO: register this publisher id on registry.comfy.org before the first publish.
 PublisherId = "amd-aim"
-DisplayName = "AMD MiniMax H3"
+DisplayName = "ComfyUI-AMD-MiniMaxH3"
+# nodes.py imports the Hailuo03 request models, which only exist from this release on.
+requires-comfyui = ">=0.30.0"
