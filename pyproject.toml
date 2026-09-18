@@ -1,7 +1,7 @@
 [project]
 name = "amd-minimax-h3"
 description = "Free MiniMax H3 (Hailuo) text-to-video and image-to-video through the AMD gateway. Register for an API key; no local GPU required."
-version = "0.1.0"
+version = "1.0.0"
 license = { file = "LICENSE" }
 requires-python = ">=3.10"
 classifiers = ["Operating System :: OS Independent"]
