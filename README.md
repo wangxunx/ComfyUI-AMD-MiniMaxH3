@@ -26,8 +26,8 @@ To point the node at a different gateway, set `H3_GATEWAY_BASE_URL`.
 
 | Node | Inputs |
 |---|---|
-| AMD MiniMax H3 Text to Video | `prompt`, `resolution` (768P / 2K), `ratio` (six aspect ratios), `duration` (4-15 seconds) |
-| AMD MiniMax H3 First-Last-Frame to Video | `first_frame`, `prompt`, `resolution` (768P / 2K), `duration` (4-15 seconds), optional `last_frame` |
+| AMD MiniMax H3 Text to Video | `prompt`, `resolution` (768P), `ratio` (six aspect ratios), `duration` (4-15 seconds) |
+| AMD MiniMax H3 First-Last-Frame to Video | `first_frame`, `prompt`, `resolution` (768P), `duration` (4-15 seconds), optional `last_frame` |
 
 Leave `last_frame` unconnected to animate a single image, or connect it to pin the final frame and animate the transition between the two. The video keeps the aspect ratio of the supplied images, so the node has no `ratio` widget. Both nodes require a prompt.
 

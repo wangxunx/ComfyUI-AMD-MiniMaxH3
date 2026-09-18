@@ -34,7 +34,7 @@ BASE_URL_ENV_VAR = "H3_GATEWAY_BASE_URL"
 API_KEY_ENV_VAR = "H3_GATEWAY_API_KEY"
 API_KEY_FILENAME = "h3_gateway_api_key.txt"
 REGISTRATION_URL = "https://h3.oneclickamd.ai"
-FAILED_STATUSES = ["failed", "cancelled", "expired"]
+FAILED_STATUSES = ["failed", "cancelled"]
 
 
 def api_key_file() -> str:
@@ -94,7 +94,7 @@ async def run_video_task(
         response_model=Hailuo03TaskQueryResponse,
         status_extractor=lambda r: r.task.status,
         failed_statuses=FAILED_STATUSES,
-        poll_interval=5,
+        poll_interval=2,
     )
     video_url = task_result.task.content.url if task_result.task.content else None
     if not video_url:
@@ -121,9 +121,9 @@ class AMDMiniMaxH3TextToVideo(IO.ComfyNode):
                 ),
                 IO.Combo.Input(
                     "resolution",
-                    options=["768P", "2K"],
+                    options=["768P"],
                     default="768P",
-                    tooltip="Resolution of the output video.",
+                    tooltip="Resolution of the output video. The gateway currently renders one size, 768 pixels on the short edge.",
                 ),
                 IO.Combo.Input(
                     "ratio",
@@ -181,9 +181,9 @@ class AMDMiniMaxH3FirstLastFrameToVideo(IO.ComfyNode):
                 ),
                 IO.Combo.Input(
                     "resolution",
-                    options=["768P", "2K"],
+                    options=["768P"],
                     default="768P",
-                    tooltip="Resolution of the output video.",
+                    tooltip="Resolution of the output video. The gateway currently renders one size, 768 pixels on the short edge.",
                 ),
                 IO.Int.Input(
                     "duration",
