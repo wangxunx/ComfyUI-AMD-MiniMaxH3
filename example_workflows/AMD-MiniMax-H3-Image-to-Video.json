@@ -1,6 +1,6 @@
 {
-  "last_node_id": 5,
-  "last_link_id": 3,
+  "last_node_id": 4,
+  "last_link_id": 2,
   "nodes": [
     {
       "id": 1,
@@ -35,44 +35,7 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "amd_h3_flf_first_frame.png",
-        "image"
-      ]
-    },
-    {
-      "id": 5,
-      "type": "LoadImage",
-      "pos": [
-        -1660,
-        600
-      ],
-      "size": [
-        340,
-        340
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            3
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "amd_h3_flf_last_frame.png",
+        "example.png",
         "image"
       ]
     },
@@ -88,7 +51,7 @@
         260
       ],
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "inputs": [
         {
@@ -100,7 +63,7 @@
           "name": "last_frame",
           "type": "IMAGE",
           "shape": 7,
-          "link": 3
+          "link": null
         }
       ],
       "outputs": [
@@ -116,7 +79,7 @@
         "Node name for S&R": "AMDMiniMaxH3FirstLastFrameToVideo"
       },
       "widgets_values": [
-        "One continuous shot that starts on the first image and lands exactly on the last image. The camera drifts slowly forward while the light shifts naturally between the two moments, and the motion carries all the way through with no cuts.",
+        "The drawing comes to life. A gentle breeze moves across the grassy hill: her long blonde hair and her big fluffy ears sway with the wind, she blinks and her smile widens, and she slowly waves one hand at the camera. The white clouds drift across the blue sky behind her. Soft hand-drawn animation, flat bright colors, cheerful and playful, no camera cuts.",
         "768P",
         5
       ],
@@ -135,7 +98,7 @@
         110
       ],
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "inputs": [
         {
@@ -153,7 +116,7 @@
       ],
       "properties": {},
       "widgets_values": [
-        "video/AMD_MiniMax_H3_flf",
+        "video/AMD_MiniMax_H3_i2v",
         "auto",
         "auto"
       ]
@@ -167,16 +130,16 @@
       ],
       "size": [
         440,
-        400
+        340
       ],
       "flags": {},
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "color": "#432",
       "bgcolor": "#653",
       "properties": {},
       "widgets_values": [
-        "## AMD MiniMax H3 First-Last-Frame to Video\n\nRequires an account key. Register at https://h3.oneclickamd.ai, then configure it either way below. **One-time setup per machine** — it applies to every workflow:\n\n- Environment variable `H3_GATEWAY_API_KEY`\n- Or save the key to `h3_gateway_api_key.txt` in the ComfyUI user directory\n\nIf the key is missing, the node fails immediately and tells you the registration URL and the exact file path, so you never sit through a silent 401.\n\n**Your key is not in this workflow.** The node has no `api_key` widget, so the key is never written into the workflow JSON or embedded into exported video metadata. This workflow is safe to share.\n\nIf you run your own gateway, override the default address with `H3_GATEWAY_BASE_URL`.\n\n**Pick your own two images.** Both `LoadImage` nodes point at placeholder filenames that are not shipped with this package, so select a start and an end image of your own before running.\n\n**Parameters:** the video keeps the first image's aspect ratio, so there is no `ratio` widget. `resolution` 768P / 2K; `duration` 4-15 seconds. A prompt is required — describe the motion that connects the two frames.\n\nTo animate a single image instead, open the **Image to Video** template."
+        "## AMD MiniMax H3 Image to Video\n\nRequires an account key. Register at https://h3.oneclickamd.ai, then configure it either way below. **One-time setup per machine** — it applies to every workflow:\n\n- Environment variable `H3_GATEWAY_API_KEY`\n- Or save the key to `h3_gateway_api_key.txt` in the ComfyUI user directory\n\nIf the key is missing, the node fails immediately and tells you the registration URL and the exact file path, so you never sit through a silent 401.\n\n**Your key is not in this workflow.** The node has no `api_key` widget, so the key is never written into the workflow JSON or embedded into exported video metadata. This workflow is safe to share.\n\nIf you run your own gateway, override the default address with `H3_GATEWAY_BASE_URL`.\n\n**Parameters:** the loaded image becomes the first frame and the video keeps that image's aspect ratio, so there is no `ratio` widget. `resolution` 768P / 2K; `duration` 4-15 seconds. A prompt is required — describe how the image should move.\n\nTo pin the final frame as well, open the **First-Last-Frame to Video** template instead."
       ]
     }
   ],
@@ -196,24 +159,16 @@
       3,
       0,
       "VIDEO"
-    ],
-    [
-      3,
-      5,
-      0,
-      2,
-      1,
-      "IMAGE"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9,
+      "scale": 1.1,
       "offset": [
-        2250,
-        80
+        2200,
+        60
       ]
     }
   },
