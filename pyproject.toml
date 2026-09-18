@@ -7,13 +7,15 @@ requires-python = ">=3.10"
 classifiers = ["Operating System :: OS Independent"]
 
 [project.urls]
-Repository = "https://github.com/AMD-AIM/ComfyUI-AMD-MiniMaxH3"
-Documentation = "https://github.com/AMD-AIM/ComfyUI-AMD-MiniMaxH3#readme"
-"Bug Tracker" = "https://github.com/AMD-AIM/ComfyUI-AMD-MiniMaxH3/issues"
+Repository = "https://github.com/wangxunx/ComfyUI-AMD-MiniMaxH3"
+Documentation = "https://github.com/wangxunx/ComfyUI-AMD-MiniMaxH3#readme"
+"Bug Tracker" = "https://github.com/wangxunx/ComfyUI-AMD-MiniMaxH3/issues"
 
 [tool.comfy]
 # TODO: register this publisher id on registry.comfy.org before the first publish.
-PublisherId = "amd-aim"
+PublisherId = "wangxunx"
 DisplayName = "ComfyUI-AMD-MiniMaxH3"
+Icon = "https://raw.githubusercontent.com/wangxunx/ComfyUI-AMD-MiniMaxH3/main/assets/icon.png"
+Banner = "https://raw.githubusercontent.com/wangxunx/ComfyUI-AMD-MiniMaxH3/main/assets/banner.jpg"
 # nodes.py imports the Hailuo03 request models, which only exist from this release on.
 requires-comfyui = ">=0.30.0"

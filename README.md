@@ -6,7 +6,7 @@ ComfyUI nodes for MiniMax H3 (Hailuo) video generation through the AMD gateway.
 
 ```bash
 cd ComfyUI/custom_nodes
-git clone https://github.com/AMD-AIM/ComfyUI-AMD-MiniMaxH3.git
+git clone https://github.com/wangxunx/ComfyUI-AMD-MiniMaxH3.git
 ```
 
 Restart ComfyUI. No extra Python dependencies are required.
