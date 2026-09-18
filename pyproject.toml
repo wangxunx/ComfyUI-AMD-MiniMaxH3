@@ -2,6 +2,7 @@
 name = "amd-minimax-h3"
 description = "ComfyUI nodes for MiniMax H3 (Hailuo) text-to-video and image-to-video generation through the AMD gateway. Cloud service, no local GPU required; bring your own API key."
 version = "0.1.0"
+license = { file = "LICENSE" }
 requires-python = ">=3.10"
 classifiers = ["Operating System :: OS Independent"]
 

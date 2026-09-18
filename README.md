@@ -46,3 +46,7 @@ Each workflow includes a note explaining the key setup.
 ## Your API key never enters a workflow
 
 The node deliberately has no `api_key` widget. Widget values are serialized into workflow JSON and embedded into output video metadata, which would leak the key as soon as a workflow or a generated video is shared. Reading the key from the environment or from a file outside the graph keeps it out of both.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
