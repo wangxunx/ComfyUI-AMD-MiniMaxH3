@@ -26,6 +26,7 @@ from comfy_api_nodes.util import (
     poll_op,
     sync_op,
     tensor_to_base64_string,
+    validate_string,
 )
 
 DEFAULT_BASE_URL = "https://h3.oneclickamd.ai"
@@ -146,6 +147,7 @@ class AMDMiniMaxH3TextToVideo(IO.ComfyNode):
 
     @classmethod
     async def execute(cls, prompt: str, resolution: str, ratio: str, duration: int) -> IO.NodeOutput:
+        validate_string(prompt, min_length=1)
         return await run_video_task(
             cls,
             content=[Hailuo03TextContent(text=prompt)],
@@ -175,7 +177,7 @@ class AMDMiniMaxH3FirstLastFrameToVideo(IO.ComfyNode):
                     "prompt",
                     multiline=True,
                     default="",
-                    tooltip="Optional text prompt describing how the images should animate.",
+                    tooltip="Text prompt describing how the images should animate.",
                 ),
                 IO.Combo.Input(
                     "resolution",
@@ -211,10 +213,9 @@ class AMDMiniMaxH3FirstLastFrameToVideo(IO.ComfyNode):
         duration: int,
         last_frame: torch.Tensor | None = None,
     ) -> IO.NodeOutput:
-        content: list = []
-        if prompt:
-            content.append(Hailuo03TextContent(text=prompt))
-        content.append(image_content(first_frame, "first_frame"))
+        # The gateway requires exactly one non-empty text item even when frames are supplied.
+        validate_string(prompt, min_length=1)
+        content = [Hailuo03TextContent(text=prompt), image_content(first_frame, "first_frame")]
         if last_frame is not None:
             content.append(image_content(last_frame, "last_frame"))
         return await run_video_task(cls, content=content, resolution=resolution, duration=duration)
